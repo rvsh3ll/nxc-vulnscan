@@ -1,0 +1,38 @@
+# Placeholder lab output. IPs, domain, and user are fake.
+
+$ nxc smb 10.0.0.10 -u jdoe -p 'Password' -d corp.local -M vulnscan -o SKIP=zerologon,wcc
+
+SMB         10.0.0.10   445   DC01   [*] Windows Server 2016 Standard 14393 x64 (name:DC01) (domain:CORP.LOCAL) (signing:True) (SMBv1:True)
+SMB         10.0.0.10   445   DC01   [+] CORP.LOCAL\jdoe:Password
+VULNSCAN    10.0.0.10   445   DC01   [*] Running 12 stock check modules (no exploit)
+VULNSCAN    10.0.0.10   445   DC01   [*] --- ms17-010 ---
+VULNSCAN    10.0.0.10   445   DC01   [*] --- smbghost ---
+VULNSCAN    10.0.0.10   445   DC01   [*] --- ntlm_reflection ---
+VULNSCAN    10.0.0.10   445   DC01   [*] --- remove-mic ---
+VULNSCAN    10.0.0.10   445   DC01   [*] --- printnightmare ---
+PRINTNIG... 10.0.0.10   445   DC01   VULNERABLE
+VULNSCAN    10.0.0.10   445   DC01   [*] --- spooler ---
+SPOOLER     10.0.0.10   445   DC01   Spooler service enabled
+VULNSCAN    10.0.0.10   445   DC01   [*] --- webdav ---
+VULNSCAN    10.0.0.10   445   DC01   [*] --- coerce_plus ---
+COERCE_PLUS 10.0.0.10   445   DC01   VULNERABLE, DFSCoerce
+COERCE_PLUS 10.0.0.10   445   DC01   VULNERABLE, PetitPotam
+COERCE_PLUS 10.0.0.10   445   DC01   VULNERABLE, Printerbug
+VULNSCAN    10.0.0.10   445   DC01   [*] --- nopac ---
+NOPAC       10.0.0.10   445   DC01   TGT with PAC size 1234
+NOPAC       10.0.0.10   445   DC01   TGT without PAC size 890
+NOPAC       10.0.0.10   445   DC01   VULNERABLE
+VULNSCAN    10.0.0.10   445   DC01   [*] --- enum_av ---
+VULNSCAN    10.0.0.10   445   DC01   [*] --- enum_ca ---
+VULNSCAN    10.0.0.10   445   DC01   [*] --- sccm-recon6 ---
+VULNSCAN    10.0.0.10   445   DC01   ======== vulnscan summary ========
+VULNSCAN    10.0.0.10   445   DC01   [*] [----] ms17-010           no highlight (not vulnerable / no signal)
+VULNSCAN    10.0.0.10   445   DC01   [*] [----] smbghost           no highlight (not vulnerable / no signal)
+VULNSCAN    10.0.0.10   445   DC01   [*] [----] ntlm_reflection    no highlight (not vulnerable / no signal)
+VULNSCAN    10.0.0.10   445   DC01   [*] [----] remove-mic         no highlight (not vulnerable / no signal)
+VULNSCAN    10.0.0.10   445   DC01   [HIT]  printnightmare     VULNERABLE
+VULNSCAN    10.0.0.10   445   DC01   [HIT]  spooler            Spooler service enabled
+VULNSCAN    10.0.0.10   445   DC01   [*] [----] webdav             no highlight (not vulnerable / no signal)
+VULNSCAN    10.0.0.10   445   DC01   [HIT]  coerce_plus        VULNERABLE, DFSCoerce | VULNERABLE, PetitPotam | VULNERABLE, Printerbug
+VULNSCAN    10.0.0.10   445   DC01   [HIT]  nopac              VULNERABLE
+VULNSCAN    10.0.0.10   445   DC01   =================================
